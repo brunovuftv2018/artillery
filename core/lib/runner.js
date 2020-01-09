@@ -414,6 +414,10 @@ function runScenario(script, intermediate, runState, contextVars) {
     } else {
       const scenarioFinishedAt = process.hrtime(scenarioStartedAt);
       const delta = (scenarioFinishedAt[0] * 1e9) + scenarioFinishedAt[1];
+
+      console.log('bruno hook here 2');
+      console.log('delta: ' + delta + 'startedAt: ' + scenarioStartedAt + ' endedAt: ' + scenarioFinishedAt);
+
       intermediate.addScenarioLatency(delta);
       intermediate.completedScenario();
     }
