@@ -524,6 +524,8 @@ HttpEngine.prototype.step = function step(requestSpec, ee, opts) {
               const endedAt = process.hrtime(startedAt);
               let delta = (endedAt[0] * 1e9) + endedAt[1];
               debugRequests('request end: %s', req.path);
+              console.log('bruno hook here');
+              console.log('statusCode: ' + res.statusCode + 'startedAt: ' + startedAt + ' endedAt: ' + endedAt);
               ee.emit('response', delta, code, context._uid);
             });
           }).on('end', function() {
